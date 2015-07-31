@@ -1,1 +1,241 @@
-<h1>Hello World</h1>
+---
+layout: head_layout
+---
+
+
+<!-- NAVBAR
+================================================== -->
+    <div class="navbar-wrapper">
+        <div class="container">
+
+            <div class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">.NET User Group Dresden</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="treffen.html">Treffen</a></li>
+                            <li><a href="http://vimeo.com/groups/dotnetdresden" target="_blank">Videos</a></li>
+                            <li><a href="partner.html">Partner</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide hidden-xs" data-ride="carousel">	
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active" style="background-image: url('Images/pic1.jpg'); background-position: center; background-repeat: no-repeat;">                
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div class="content">
+                            <h1>Gemeinsam mehr wissen</h1>
+                            <p>Tausche dich auf unseren Treffen mit anderen Entwicklern aus</p>
+                        </div>
+                        <div class="background"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="background-image: url('Images/pic2.jpg'); background-position: center; background-repeat: no-repeat;">             
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div class="content">
+                            <h1>F&uuml;r Entwickler</h1>
+                            <p>zum Austausch, spannende Themen, nette Menschen.</p>                            
+                        </div>
+                        <div class="background"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="background-image: url('Images/pic3.jpg'); background-position: center; background-repeat: no-repeat;">                
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div class="content">
+                            <h1>Wir treffen uns</h1>
+                            <p>und jeder kann teilnehmen. Wir halten dich auf dem Laufenden, komm einfach vorbei :)</p>
+							<p>
+								<a class="btn btn-large btn-primary" href="webcal://www.dd-dotnet.de/calendar.ics">Kalender abonnieren</a>
+								<a class="btn btn-large btn-primary" href="atom.xml" style="margin-left: 20px">Feed abonnieren</a>
+							</p>  
+                        </div>
+                        <div class="background"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+    <!-- /.carousel -->
+    <!-- mobile fancy header -->
+	 <div id="mobileCarousel" class="carousel slide visible-xs" data-ride="carousel">	
+        <!-- Indicators -->      
+        <div class="carousel-inner">
+            <div class="item active" style="background-image: url('Images/pic3.jpg'); background-position: center">                
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div class="content">
+                            <h1>Gemeinsam mehr wissen</h1>                            
+                        </div>
+                        <div class="background"></div>
+                    </div>
+                </div>
+            </div>            
+        </div>    
+    </div>
+    <!-- /mobile fancy header -->
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+        <h1>Unser Kalender</h1>
+        
+        <table class="table" style="margin-bottom: 100px">
+            <thead>
+                <tr>
+                    <th class="col-md-2">Datum</th>
+                    <th>Thema</th>
+                    <th>Sprecher</th>
+                    <th>Ort</th>
+                </tr>
+            </thead>
+            <tbody>
+             {% assign nowDate = site.time | date: '%Y%m%d' %} 
+             {% for post in site.posts %}
+                {% assign postDate = (post.date | date: '%Y%m%d') %}
+                {% if postDate >= nowDate %}
+                   <tr>
+                       <td>{{ post.date | date: '%d.%m.%Y | %H:%M Uhr' }}</td>
+                       <td><a href="{{ post.url }}">{{ post.title }}</a></td>
+                       <td>{{ post.speaker }}</td>
+                       <td><a href="{{ post.placelink }}" target="_blank">{{ post.place }}</a></td>
+                   </tr>
+                {% endif %}
+              {% endfor %}
+
+            </tbody>
+        </table>
+        <h3>Treffen verpasst?</h3>
+        <p>Lass dich immer an das nächste Treffen erinnern. Klick einfach hier:</p><p><a class="btn btn-large btn-primary" href="webcal://www.dd-dotnet.de/calendar.ics">Kalender abonnieren</a>
+        <a class="btn btn-large btn-primary" href="atom.xml" style="margin-left: 20px">Feed abonnieren</a>
+		<a target="_blank" class="btn btn-large btn-primary" href="https://feedburner.google.com/fb/a/mailverify?uri=dd-dotnet&loc=de_DE" style="margin-left: 20px">Newsletter abonnieren</a>
+		</p>      
+
+		
+		
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Tausch dich aus <span class="text-muted">mit spannenden Leuten.</span></h2>
+                <p class="lead">Softwareentwickler, Architekten, Studenten diskutieren gemeinsam über Themen die unsere Branche bewegen. </p>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive" src="Images/menschen1.jpg" style="width: 470px; height: 470px" alt="">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive" src="Images/menschen4.jpg" style="width: 470px; height: 470px" alt="">
+            </div>
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Lerne Neues <span class="text-muted">und teile dein Wissen.</span></h2>
+                <p class="lead">
+                    Mit vielen spannenden Vortr&auml;gen von gro&szlig;artigen Sprechern decken wir ein breites Themengebiet ab. 
+                </p>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Komm vorbei<span class="text-muted"> und mach mit.</span></h2>
+                <p class="lead">Bei uns sind alle willkommen, egal ob Anf&auml;nger oder professioneller Software-Architekt. Jeder ist herzlich eingeladen eigene Themen vorzustellen oder Ideen und Gedanken zur Diskussion zu bringen. Ach und unsere Treffen sind nat&uuml;rlich kostenlos.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive" src="Images/menschen6.jpg" style="width: 470px; height: 470px" alt="">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+<div class="row featurette">
+            <div class="col-md-3">
+                <p style="text-align:center;">
+                    <a href="http://devopenspace.de/" title="Open Source. Open Space. Developer Open Space" target="_blank">
+                        <img src="http://goo.gl/GPyns" alt="Open Source. Open Space. Developer Open Space" />
+                    </a>
+                </p>
+            </div>
+            <div class="col-md-3">
+                <h4>Unterst&uuml;tzt durch</h4>
+                <a href="http://grossweber.com/b/dnug-dresden" title="Kurs, Schulung, Training und Seminar von grossweber.com" target="_blank">
+                    <img src="http://grossweber.com/assets/images/b/grossweber-149-26.png" alt="Kurs, Schulung, Training und Seminar von grossweber.com">
+                </a>
+                <br />
+
+                <a href="http://grossweber.com/b/dnug-dresden-1" title="Git Kurs">Git Kurse</a> und weitere <a href="http://grossweber.com/b/dnug-dresden-2" title="Git Kurs">Trainings und Seminare</a>
+            </div>
+            <div class="col-md-5">
+        <iframe src='http://www.itsax.de/widget&typ=0&user=0&anzahl=3&link=428bca&color=000000&border=FFFFFF&liste=&type=j&font=Helvetica&suchbegriff=.NET' width='100%' height='100%' style='border: 0;'></iframe>
+        </div>
+        </div>
+
+
+        <hr class="featurette-divider">
+
+
+        <!-- /END THE FEATURETTES -->
+
+
+        <!-- FOOTER -->
+        <footer>
+            <p class="pull-right"><a href="#">Nach oben</a></p>
+            <p>Bilder von <a href="http://www.timapix.de/">timapix.de</a> &middot; <a href="impressum.html">Impressum</a></p>
+        </footer>
+
+    </div>
+
+    <!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="Scripts/carousel.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#myCarousel').carousel({
+                interval: 10000,
+                pause: "hover"
+            }).carousel('cycle');
+        });
+
+    </script>
