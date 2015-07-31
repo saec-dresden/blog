@@ -60,9 +60,9 @@ layout: head_layout
                 
                    <tr>
                        <td>{{ post.date | date: '%d.%m.%Y | %H:%M Uhr' }}</td>
-                       <td><a href="{{ post.url }}">{{ post.title }}</a></td>
+                       <td><a href=".{{ post.url }}">{{ post.title }}</a></td>
                        <td class="hidden-xs">{{ post.speaker }}</td>
-                       <td><a href="{{ post.placelink }}" target="_blank">{{ post.place }}</a></td>
+                       <td><a href=".{{ post.placelink }}" target="_blank">{{ post.place }}</a></td>
                    </tr>
 
                 
